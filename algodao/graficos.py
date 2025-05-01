@@ -1,4 +1,5 @@
 import plotly.express as px
+from dataset import df_rec_por_dia
 
 class GraficoVendas:
     def __init__(self, df_rec_mensal):
@@ -16,3 +17,12 @@ class GraficoVendas:
             category_orders={"Mes": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]},
         )
         return grafico_rec_mensal
+
+grafico_re_venda_por_dia = px.bar(
+    df_rec_por_dia.head(7).reset_index(),  # garante que 'Data' seja coluna
+    x='Data',
+    y='Preco_R$',
+    text_auto=True,
+    title='Top 7 de vendas por dia do mês',
+    labels={'Data': 'Data da Venda', 'Preco_R$': 'Receita (R$)'}
+)

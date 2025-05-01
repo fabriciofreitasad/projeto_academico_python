@@ -21,7 +21,7 @@ df['Data'] = pd.to_datetime(df['Data'], format='%d/%m/%Y')
 #print(df.head())
 
 # Agrupamento mensal para receita
-df_rec_mensal = df.set_index('Data').groupby(pd.Grouper(freq='M'))['Preco_R$'].sum().reset_index()
+df_rec_mensal = df.set_index('Data').groupby(pd.Grouper(freq='MS'))['Preco_R$'].sum().reset_index()
 
 # Adiciona Ano e Mês
 df_rec_mensal['Ano'] = df_rec_mensal['Data'].dt.year
@@ -29,3 +29,9 @@ df_rec_mensal['Mes'] = df_rec_mensal['Data'].dt.month_name()
 
 # Exibe o DataFrame mensal (opcional)
 #print(df_rec_mensal.head())
+
+# Dataframe de receita por mes
+df_rec_por_dia = df.groupby('Data')[['Preco_R$']].sum().sort_values('Preco_R$', ascending=False)
+
+
+##print(df_rec_por_dia.head())

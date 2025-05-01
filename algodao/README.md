@@ -1,9 +1,8 @@
-
 # **Projeto Python Algodão - Dashboard de Vendas**
 
 ## **Descrição**
 
-Este projeto tem como objetivo criar um dashboard interativo para análise de dados de vendas de algodão. Utilizando **Streamlit** para construção da interface web, **Pandas** para manipulação de dados e **Plotly** para gráficos interativos, a aplicação permite visualizar receitas, realizar processamento de dados e analisar a variação de preços ao longo do tempo.
+Este projeto tem como objetivo criar um dashboard interativo para análise de dados de vendas de algodão. Utilizando **Streamlit** para construção da interface web, **Pandas** para manipulação de dados e **Plotly** para gráficos interativos, a aplicação permite visualizar receitas, realizar processamento de dados e analisar a variação de preços ao longo do tempo. Também foi integrada uma **Rede Neural com TensorFlow/Keras** para realizar a **previsão do preço do algodão** com base em séries temporais.
 
 ## **Pré-requisitos**
 
@@ -35,34 +34,30 @@ Ative o ambiente virtual para garantir que as dependências sejam instaladas cor
 
 ## **2. Instalando as Dependências**
 
-Após ativar o ambiente virtual, você precisará instalar as bibliotecas necessárias para rodar o projeto. Use os seguintes comandos no terminal:
+Após ativar o ambiente virtual, você precisará instalar as bibliotecas necessárias para rodar o projeto. Use o comando abaixo:
 
-### Passo 2.1 - Instalando as Bibliotecas
+### Passo 2.1 - Instalar via requirements.txt
 
-- **Pandas**: Biblioteca essencial para importar e manipular dados de datasets.
-  ```bash
-  pip install pandas
-  ```
+```bash
+pip install -r requirements.txt
+```
 
-- **Plotly**: Biblioteca para criar gráficos interativos, excelente para visualização de dados no Streamlit.
-  ```bash
-  pip install plotly
-  ```
+### Conteúdo do `requirements.txt`
 
-- **Streamlit**: Framework para criar interfaces web interativas de forma rápida e simples, utilizado para a construção do dashboard.
-  ```bash
-  pip install streamlit
-  ```
+```txt
+streamlit==1.34.0
+plotly==5.20.0
+pandas==2.2.2
+numpy==1.26.4
+scikit-learn==1.4.2
+tensorflow==2.16.1
+```
 
 ### Passo 2.2 - Verificando as Dependências Instaladas
-
-Você pode verificar se as bibliotecas foram instaladas corretamente utilizando o comando:
 
 ```bash
 pip list
 ```
-
-Isso irá listar todas as bibliotecas e suas versões instaladas no ambiente virtual.
 
 ## **3. Executando o Projeto**
 
@@ -70,19 +65,18 @@ Agora que todas as dependências estão instaladas, você pode iniciar o servido
 
 ### Passo 3.1 - Executando o Streamlit
 
-No terminal, execute o seguinte comando para iniciar o aplicativo:
-
 ```bash
-streamlit run .\app.py
+streamlit run app.py
 ```
 
-Isso irá abrir automaticamente o seu navegador com o dashboard, geralmente acessível em `http://localhost:8501`.
+A aplicação será aberta automaticamente no navegador, geralmente acessível em `http://localhost:8501`.
 
 ## **4. Navegação no Dashboard**
 
 - **Aba 1**: Exibe a visualização de vendas com a tabela de dados.
 - **Aba 2**: Mostra o processamento de dados, com métricas como receita total e quantidade de vendas.
 - **Aba 3**: Exibe gráficos interativos para análise dos preços do algodão ao longo do tempo.
+- **Aba 4**: Traz a previsão do próximo preço do algodão com base em uma rede neural (LSTM) treinada com dados históricos.
 
 ---
 
@@ -105,12 +99,10 @@ Se você adicionar novas dependências ao seu ambiente ou se outras pessoas prec
    pip install <nome-da-biblioteca>
    ```
 
-3. **Atualizar o arquivo `requirements.txt`** para refletir as novas dependências:
+3. **Atualizar o arquivo `requirements.txt`**:
    ```bash
    pip freeze > requirements.txt
    ```
-
-Isso atualizará o arquivo `requirements.txt` com todas as dependências do ambiente virtual, garantindo que outras pessoas possam instalar as mesmas versões de bibliotecas ao configurar o projeto.
 
 ---
 
@@ -119,3 +111,4 @@ Isso atualizará o arquivo `requirements.txt` com todas as dependências do ambi
 - **Pandas**: Manipulação e análise de dados.
 - **Plotly**: Visualização de gráficos interativos.
 - **Streamlit**: Criação rápida de interfaces web interativas.
+- **TensorFlow/Keras**: Biblioteca de aprendizado profundo usada para previsão do preço do algodão.
