@@ -2,7 +2,7 @@
 
 ## **Descrição**
 
-Este projeto tem como objetivo criar um dashboard interativo para análise de dados de vendas de algodão. Utilizando **Streamlit** para construção da interface web, **Pandas** para manipulação de dados e **Plotly** para gráficos interativos, a aplicação permite visualizar receitas, realizar processamento de dados e analisar a variação de preços ao longo do tempo. Também foi integrada uma **Rede Neural com TensorFlow/Keras** para realizar a **previsão do preço do algodão** com base em séries temporais.
+Este projeto tem como objetivo criar um dashboard interativo para análise de dados de vendas de algodão. Utilizando **Streamlit** para construção da interface web, **Pandas** para manipulação de dados e **Plotly** para gráficos interativos, a aplicação permite visualizar receitas, realizar processamento de dados e analisar a variação de preços ao longo do tempo. Também foi integrada uma **Rede Neural com TensorFlow/Keras** para realizar a **previsão do preço do algodão** com base em séries temporais. Agora o projeto também conta com **três modelos de previsão diferentes**: LSTM, MLP e Regressão Linear.
 
 ## **Pré-requisitos**
 
@@ -76,7 +76,10 @@ A aplicação será aberta automaticamente no navegador, geralmente acessível e
 - **Aba 1**: Exibe a visualização de vendas com a tabela de dados.
 - **Aba 2**: Mostra o processamento de dados, com métricas como receita total e quantidade de vendas.
 - **Aba 3**: Exibe gráficos interativos para análise dos preços do algodão ao longo do tempo.
-- **Aba 4**: Traz a previsão do próximo preço do algodão com base em uma rede neural (LSTM) treinada com dados históricos.
+- **Aba 4**: Traz a previsão do próximo preço do algodão com base em três modelos diferentes:
+  - LSTM (Rede Neural Recorrente)
+  - MLP (Rede Neural Densa)
+  - Regressão Linear
 
 ---
 
@@ -112,3 +115,4 @@ Se você adicionar novas dependências ao seu ambiente ou se outras pessoas prec
 - **Plotly**: Visualização de gráficos interativos.
 - **Streamlit**: Criação rápida de interfaces web interativas.
 - **TensorFlow/Keras**: Biblioteca de aprendizado profundo usada para previsão do preço do algodão.
+- **Scikit-learn**: Biblioteca de machine learning utilizada para Regressão Linear e outros modelos clássicos.

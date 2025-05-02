@@ -3,7 +3,8 @@ import plotly.express as px  # Adicionando a importação do plotly.express
 from dataset import df, df_rec_mensal  # Importa os dados preparados
 from utils import format_number  # Função para formatação de números
 from graficos import GraficoVendas, grafico_re_venda_por_dia # Classe para gerar os gráficos
-from modelo_ia import obter_previsao  # no topo do arquivo
+from modelo_ia import obter_previsao  
+from previsoes import previsao_lstm, previsao_mlp, previsao_reg_linear  
 
 st.set_page_config(layout='wide')
 st.title("Dashboard de Vendas :shopping_trolley:")
@@ -54,6 +55,19 @@ with aba3:
 
 # Nova aba - Previsão com IA
 with aba4:
-    st.subheader("Previsão do Preço do Algodão com IA (Rede Neural)")
-    preco_previsto = obter_previsao()
-    st.metric("Preço previsto para o próximo dia", format_number(preco_previsto, 'R$'))
+    st.subheader("Previsões de Preço do Algodão com Modelos de IA")
+
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        st.metric("Previsão com Rede Neural LSTM", format_number(previsao_lstm(), 'R$'))
+    with col2:
+        st.metric("Previsão com Rede Neural MLP", format_number(previsao_mlp(), 'R$'))
+    with col3:
+        st.metric("Previsão com Regressão Linear", format_number(previsao_reg_linear(), 'R$'))
+
+    with st.expander("📘 O que significam esses modelos?"):
+        st.markdown("""
+        - **LSTM**: Uma Rede Neural Recorrente que considera o histórico de preços ao longo do tempo. Ideal para prever séries temporais.
+        - **MLP**: Rede Neural Perceptron Multicamadas. Funciona bem com padrões gerais e relacionamentos nos dados.
+        - **Regressão Linear**: Um modelo estatístico simples, útil como linha de base para comparação.
+        """)

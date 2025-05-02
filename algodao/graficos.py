@@ -19,7 +19,7 @@ class GraficoVendas:
         return grafico_rec_mensal
 
 grafico_re_venda_por_dia = px.bar(
-    df_rec_por_dia.head(7).reset_index(),  # garante que 'Data' seja coluna
+    df_rec_por_dia.head(7).reset_index(),
     x='Data',
     y='Preco_R$',
     text_auto=True,
